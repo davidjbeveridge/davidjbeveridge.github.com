@@ -1,0 +1,37 @@
+=desktop
+  @media screen and (min-width: 960px)
+    @content
+
+=tablet
+  @media screen and (max-width: 959px)
+    @content
+
+=mobile
+  @media screen and (max-width: 767px)
+    @content
+
+=print
+  @media print
+    @content
+
+=hide-print
+  +print
+    display: none
+
+.hide-print
+  +hide-print
+
+=selection($bg, $color: inherit, $text-shadow: none)
+  *
+    &::-moz-selection
+      background: $bg
+      color: $color
+      text-shadow: $text-shadow
+    &::-webkit-selection
+      background: $bg
+      color: $color
+      text-shadow: $text-shadow
+    &::selection
+      background: $bg
+      color: $color
+      text-shadow: $text-shadow

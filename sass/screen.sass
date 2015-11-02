@@ -150,13 +150,17 @@ body > header[role=banner].normal
             display: inline-block
             li
               display: block
-              border-bottom: solid 2px $text-color
               margin: 0
               a
                 display: block
                 width: 100%
                 padding: 0 5%
                 text-decoration: none
+                background: $text-color
+                border-bottom: solid 1px $body-bg-color
+                color: $body-bg-color
+                &:hover
+                  background: lighten($text-color, 5%)
     float: right
     line-height: 2.4em
     font-family: $sans

@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>David Beveridge</title>
+  <meta name="author" content="David Beveridge">
+
+  
+  <meta name="description" content="Code reviews are a great way to improve code quality, catch bugs, and keep your
+whole team in sync with the latest changes. My favorite tool for &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://davidbeveridge.net/blog/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="all" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="David Beveridge" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner" class="normal">
+    <hgroup>
+  <h1><a href="/">David Beveridge</a></h1>
+  
+    <h2>Software Artisan</h2>
+  
+</hgroup>
+
+
+    <nav role="navigation">
+<div id="navbar">
+  <ul class="main-navigation" id="navbar">
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/resume/">Résumé/CV</a></li>
+    <li><a href="https://github.com/davidjbeveridge" target="_blank">Github</a></li>
+  </ul>
+  <a href="#navbar" class="menu-toggle on">[+]</a>
+  <a href="#navbar-off" class="menu-toggle off">[-]</a>
+</div>
+
+</nav>
+  </header>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/29/effective-code-reviews/">Effective Code Reviews</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-29T12:12:00-06:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:12 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Code reviews are a great way to improve code quality, catch bugs, and keep your
+whole team in sync with the latest changes.  My favorite tool for doing a code
+review is still Github&rsquo;s <a href="https://help.github.com/articles/using-pull-requests">Pull Request</a> feature, because of the
+easily-accessible diffs, inline comments, and commit-level and PR-level views of
+the file changes.</p>
+
+<p>So, how do we make the code review process effective? I offer the following
+tips:</p>
+
+<ul>
+<li>Actually review PR&rsquo;s; telling an author to &ldquo;just ship it&rdquo; is detrimental.</li>
+<li>Senior developers <em>want</em> you to review their code; don&rsquo;t be scared.</li>
+<li>Close PR&rsquo;s that don&rsquo;t have specs</li>
+<li>If spec coverage is sparse, discuss it with the author (nicely).</li>
+<li>Spec descriptions should accurately reflect the behavior of the module/method
+they describe.</li>
+<li>Ask questions instead of making statements; the author likely put more thought
+into the code than you are aware of, and they&rsquo;ve already solved the problem
+once.</li>
+<li>Look for design problems:
+
+<ul>
+<li>Does this change solve a real problem? is it worth solving?</li>
+<li>Given the constraints, is the overall approach correct and reasonable?</li>
+</ul>
+</li>
+<li>Look for <a href="http://c2.com/cgi/wiki?CodeSmell">code smells</a> and suggest refactorings.</li>
+<li>Ask for help with reviewing code that is outside your area of expertise.</li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/29/effective-code-reviews/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/01/ecmascript-6-default-rest-spread-params/">ECMAScript 6 - Default, Rest, and Spread Arguments</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-08-01T07:00:00-06:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>7:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ever wanted a default value for an arugment? Or the ability to work with
+variable numbers of arguments more easily?  Ever written code like this?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">bar</span> <span class="o">=</span> <span class="nx">bar</span> <span class="o">||</span> <span class="s1">&#39;default value&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">theRest</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Perhaps you&rsquo;re familiar with <a href="http://coffeescript.org/#splats">CoffeeScript&rsquo;s splat arguments</a>
+(<code>...</code>); or, if you&rsquo;ve ever used Ruby, you&rsquo;ll be familiar with
+<a href="http://pivotallabs.com/ruby-pearls-vol-1-the-splat/">the Ruby splat operator</a>.</p>
+
+<p>Maybe you&rsquo;ve needed to use an array as an argument list? Ever done this?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+</span><span class='line'><span class="nx">doSomethingWithArgs</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>The days of using <code>[].slice.call</code> and <code>fn.apply(null, args)</code> are over!
+Finally, JavaScript is introducing a splat-like operator!</strong>  Say hello to
+default, rest, and spread arguments!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/08/01/ecmascript-6-default-rest-spread-params/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/28/ecmascript-6-arrow-functions/">ECMAScript 6 - Arrow Functions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-07-28T07:00:00-06:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One of my favorite proposals for ECMAScript 6 is the proposal to add a
+convenient labmda syntax: <a href="http://tc39wiki.calculist.org/es6/arrow-functions/">Arrow Functions</a>.</p>
+
+<p>Personally, I get sick of typing <code>function (){}</code> all the time (ok, I don&rsquo;t
+usually type it, my editor takes care of it).</p>
+
+<p>Say I want to do some functional stuff (silly example):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">];</span>
+</span><span class='line'><span class="c1">// map a list of even/odd pairs, multiplied</span>
+</span><span class='line'><span class="nx">numbers</span>
+</span><span class='line'>  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;}</span> <span class="p">)</span>
+</span><span class='line'>  <span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">numbers</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="p">}</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yay! Much more convenient.  But, arrow functions are not <em>exactly</em> like
+<code>function</code>s.  How, you ask?</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/28/ecmascript-6-arrow-functions/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/29/effective-code-reviews/">Effective Code Reviews</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/01/ecmascript-6-default-rest-spread-params/">ECMAScript 6 - Default, Rest, and Spread Arguments</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/ecmascript-6-arrow-functions/">ECMAScript 6 - Arrow Functions</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - David Beveridge -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+</body>
+</html>

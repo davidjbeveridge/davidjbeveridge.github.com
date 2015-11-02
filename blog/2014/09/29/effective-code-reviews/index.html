@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Effective Code Reviews - David Beveridge</title>
+  <meta name="author" content="David Beveridge">
+
+  
+  <meta name="description" content="Code reviews are a great way to improve code quality, catch bugs, and keep your
+whole team in sync with the latest changes. My favorite tool for &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://davidbeveridge.net/blog/2014/09/29/effective-code-reviews/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="all" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="David Beveridge" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner" class="normal">
+    <hgroup>
+  <h1><a href="/">David Beveridge</a></h1>
+  
+    <h2>Software Artisan</h2>
+  
+</hgroup>
+
+
+    <nav role="navigation">
+<div id="navbar">
+  <ul class="main-navigation" id="navbar">
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/resume/">Résumé/CV</a></li>
+    <li><a href="https://github.com/davidjbeveridge" target="_blank">Github</a></li>
+  </ul>
+  <a href="#navbar" class="menu-toggle on">[+]</a>
+  <a href="#navbar-off" class="menu-toggle off">[-]</a>
+</div>
+
+</nav>
+  </header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="entry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Effective Code Reviews</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-29T12:12:00-06:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:12 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Code reviews are a great way to improve code quality, catch bugs, and keep your
+whole team in sync with the latest changes.  My favorite tool for doing a code
+review is still Github&rsquo;s <a href="https://help.github.com/articles/using-pull-requests">Pull Request</a> feature, because of the
+easily-accessible diffs, inline comments, and commit-level and PR-level views of
+the file changes.</p>
+
+<p>So, how do we make the code review process effective? I offer the following
+tips:</p>
+
+<ul>
+<li>Actually review PR&rsquo;s; telling an author to &ldquo;just ship it&rdquo; is detrimental.</li>
+<li>Senior developers <em>want</em> you to review their code; don&rsquo;t be scared.</li>
+<li>Close PR&rsquo;s that don&rsquo;t have specs</li>
+<li>If spec coverage is sparse, discuss it with the author (nicely).</li>
+<li>Spec descriptions should accurately reflect the behavior of the module/method
+they describe.</li>
+<li>Ask questions instead of making statements; the author likely put more thought
+into the code than you are aware of, and they&rsquo;ve already solved the problem
+once.</li>
+<li>Look for design problems:
+
+<ul>
+<li>Does this change solve a real problem? is it worth solving?</li>
+<li>Given the constraints, is the overall approach correct and reasonable?</li>
+</ul>
+</li>
+<li>Look for <a href="http://c2.com/cgi/wiki?CodeSmell">code smells</a> and suggest refactorings.</li>
+<li>Ask for help with reviewing code that is outside your area of expertise.</li>
+</ul>
+
+
+<!--more-->
+
+
+<hr />
+
+<p>Ever seen a &ldquo;code review&rdquo; that looks like this?</p>
+
+<blockquote><p>LGTM :ship:</p></blockquote>
+
+<p>This is not a helpful code review. Rather than communicating the message, &ldquo;good
+job,&rdquo; it tells the author that you can&rsquo;t or won&rsquo;t take the time and effort
+required to properly review their work.</p>
+
+<p>If you&rsquo;ve ever done this, you&rsquo;re not alone, and I&rsquo;m not going to yell at
+you—I&rsquo;ve done it too.</p>
+
+<p>I often hear people say they aren&rsquo;t qualified to review some portion of a pull
+request; generally, this is because of a lack of familiarity with the language
+used, or of the frameworks.  While this is an understandable view, I argue that
+<strong>you are</strong>, in fact, <strong>qualified to review the code</strong>.  That&rsquo;s true even if it&rsquo;s
+not your favorite language, or you&rsquo;re not particularly good at programming in
+that language, or you&rsquo;re not familiar with the framework.  How do you review
+code you&rsquo;re not well-versed in?</p>
+
+<h2>Remember that code reviews are a service, not an insult.</h2>
+
+<p>Please, please, review my code! I think everyone who has a title like &ldquo;Senior
+X&rdquo;, &ldquo;Director of X&rdquo;, &ldquo;X Architect,&rdquo; or whatever else knows the importance of
+having someone look over their code, ask questions, and point out mistakes.  You
+don&rsquo;t need to be afraid of reviewing someone&rsquo;s code, no matter their position.
+It&rsquo;s ok.  I am not my code.  Neither is anyone else.  I also still write bad
+code sometimes.  So does everyone else.  We all need peer reviews, and we are
+all peers here.</p>
+
+<p>Moreover, if you are reviewing code from a senior developer, <strong>don&rsquo;t be a
+yes-man!</strong> Point out mistakes you see, ask about why specs are written a certain
+way, ask about architecture decisions, point out weird styling issues&hellip;
+&ldquo;Senior&rdquo; people need help too.  If someone gets mad at you for nicely
+pointing out oversights or for asking questions, that&rsquo;s a sign of immaturity,
+not seniority.</p>
+
+<h2>Ensure that there is only one feature in the pull request</h2>
+
+<p>Each organization does things a bit differently, but ideally, your pull requests
+should correspond to exactly one user story.  If you can achieve this level of
+granularity, you gain a number of benefits:</p>
+
+<ul>
+<li>A feature spec can accompany the PR, and can be verified by your CI server.</li>
+<li>The code will be easier to reason about.</li>
+<li>If you use the <a href="http://nvie.com/posts/a-successful-git-branching-model/">nvie branching model</a> (and you squash on merge), you can
+easily define different releases and cherry-pick features as you please.</li>
+</ul>
+
+
+<h2>Check that (nearly) all code has an accompanying specification.</h2>
+
+<p>If someone writes code without writing specs, they&rsquo;ve introduced an unspecified,
+undocumented landmine into the code base.  Your organization may have some
+policy about test-first, coverage level, etc.; I&rsquo;m not going to get into that.</p>
+
+<p>If you review code and there are no specs, talk to the author about it first.
+Discuss the importance of specifications, and offer to help them with writing
+some.  I often suggest that the PR be closed and the code be rewritten using
+TDD.</p>
+
+<p>Why do I recommend rewriting the code? Because if code was not driven by a spec,
+it is difficult to specify ex post facto.  Bolting unit tests onto untested code
+results in brittle tests, encourages kludgy design, increases technical debt,
+and will make refactoring difficult in the future.  If tests must be added on
+afterwards, they should be intergration tests.</p>
+
+<p>I don&rsquo;t say any of this to encourage dogmatic, or bully-like behavior.  You and
+the author should discuss the specs, and their importance, and can come to a
+decision about the code together.</p>
+
+<p>P.S.: Don&rsquo;t close PR&rsquo;s for purely cosmetic (i.e., only CSS/HTML) changes
+on this basis.</p>
+
+<h3>What about spikes? Aren&rsquo;t they the exception?</h3>
+
+<p>Nope.  Spikes are a really great tool, but their purpose is to provide a
+short-term proof-of-concept.  They shouldn&rsquo;t be merged; in fact, they shouldn&rsquo;t
+even be reviewed.  After a spike, should do a quick rewrite with specs.</p>
+
+<h2>Look for specs, and ask about the coverage level.</h2>
+
+<p>The first thing I do when I look at a PR is check the list of files changed (the
+github email digests are useful for this).  If you see <code>generic_modal.coffee</code>
+was changed, then you should also see that <code>generic_modal_spec.coffee</code> (or
+something else that matches your naming scheme) was changed in the same PR.</p>
+
+<p>Ideally, they should be changed in the same commit, or the spec should be
+changed first.  This is not a rule, just a guideline; everyone commits a bit
+differently.</p>
+
+<p>As mentioned above, keep an eye out for a feature spec (aka integration test).
+Optimally, there should be a one-to-one correspondence between a user story, a
+feature spec, and a pull request.</p>
+
+<p>There should be relevant specs for all the code, both frontend and backend.  If
+you don&rsquo;t see something close to a 1-1 mapping between specs and source code,
+ask the author what&rsquo;s going on.  Some source code doesn&rsquo;t need its own spec
+file: it may have been extracted from a spec&rsquo;d module during a refactor; that&rsquo;s
+ok.</p>
+
+<p>If the author just neglected to write the specs, the PR should not be merged.
+This PR may be used as a reference for a spec-driven rewrite of the feature.  If
+I see a PR without tests, I will close it. Specs are what give us the confidence
+we need to make changes later; we can&rsquo;t afford to neglect them.</p>
+
+<h2>Read through the specs; they should make sense.</h2>
+
+<p>When you read through the specs, you should be able to quickly understand what
+each module does and what its public interface looks like.  You should see
+relevant <code>describe</code> blocks, <code>context</code>s, and <code>it</code> descriptions (or whatever your
+testing framework provides); they should describe, in English, what the
+module/API/UI does, and the code inside each should reasonably correspond to
+that description.</p>
+
+<p>Ask the author to change non-obvious descriptions and tests; suggest a better
+description.  For example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nx">describe</span> <span class="s">&#39;#fullName&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>  <span class="nx">it</span> <span class="s">&quot;works&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nv">person = </span><span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Doe&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">fullName</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s">&quot;John Doe&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above spec, &ldquo;it works&rdquo; makes no sense.  The code inside is fine, but the
+description should be more like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nx">describe</span> <span class="s">&#39;#fullName&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>  <span class="nx">it</span> <span class="s">&quot;yields the full name of the person, space-separated&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nv">person = </span><span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Doe&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">fullName</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s">&quot;John Doe&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>If there is backend and frontend code, mentally separate them and review both.</h2>
+
+<p>In a web project, many times the backend and frontend components are written in
+different languages.  When you&rsquo;re only working on one part of the stack, it&rsquo;s
+easy to just ignore code from the other parts.  Instead, use PR&rsquo;s as a learning
+opportunity; the other parts of the stack will affect the maintainability of the
+project just as much as the parts you&rsquo;re working with, so make sure you look at
+both.</p>
+
+<p>I find that it helps me to treat the backend and frontend code in a PR as if they
+were separate PR&rsquo;s.  It&rsquo;s just a mental separation for me.</p>
+
+<p>This works best when a pull request is for only one feature.  The more features
+that are lumped together, the harder it is to review and, as a result, the
+largest PR&rsquo;s end up with the worst reviews.</p>
+
+<h2>Be encouraging</h2>
+
+<p>The purpose of code reviews is to build up, not to tear down.  That goes for both
+the code and the team.  If you see something that was done well, say so! For
+example, &ldquo;I like the way you were able to refactor that giant for-loop into a
+couple of <code>map</code> and <code>reduce</code> calls! I&rsquo;ll have to keep an eye out for that in my
+own code!&rdquo;</p>
+
+<p>Everyone likes to receive positive feedback about their work.  Plus, it will
+make you seem more appealing to work with, and it improves cohesiveness with the
+rest of the team.</p>
+
+<p>Also, try adding some <a href="http://www.emoji-cheat-sheet.com/">emoji</a>, or some <a href="http://giphy.com/">funny gifs</a> to lighten the
+mood.</p>
+
+<h2>Have you tried asking questions, rather than making statements?</h2>
+
+<p>According to Dr. Albert Mehrabian, only <a href="http://www.kaaj.com/psych/smorder.html">7% of our face-to-face communication is
+accounted for</a> by the words we say.  In the faceless, voiceless world
+of a text-based code review, it can be easy to offend someone, especially since
+people in our line of work tend to put so much care into their code.  An easy
+way to diffuse this is to ask questions.  For example, you see the following
+code:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">rgba = </span><span class="nx">hex</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="sr">/\d{2}/</span><span class="p">).</span><span class="nx">map</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You could say,</p>
+
+<blockquote><p>This is wrong.  Your split returns [&ldquo;&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;], and parseInt needs a radix of
+16.</p></blockquote>
+
+<p>Or, you could ask,</p>
+
+<blockquote><p>This doesn&rsquo;t make sense to me; I think this will always yield <code>[NaN, NaN,
+Nan]</code>.  Did I miss something?</p></blockquote>
+
+<p>Which would you rather someone post on your PR? I prefer the latter.</p>
+
+<p>Asking questions is a powerful thing.  When someone questions my code, sometimes
+that&rsquo;s the first spark of thought about an alternative approach.  Sometimes,
+it&rsquo;s a gentle reminder that I left out a use case, or forgot to remove my debug
+lines, or left a swath of commented code.</p>
+
+<p>My favorite is when someone new to my language of choice asks a question about
+my code.  Sometimes it&rsquo;s a chance for them to learn something new.  Other times
+it&rsquo;s a chance for me to break an age-old habit; you wouldn&rsquo;t believe how many
+IE5/6 hacks I use out of habit&hellip;</p>
+
+<p>If you&rsquo;re not sure whether something is right, just ask the author.  If it&rsquo;s a
+mistake, they&rsquo;ll recognize it and provide a fix.  If it was intentional, they
+can justify whatever it is; you may even learn something.</p>
+
+<h2>Suggest refactoring in both the specs and the source.</h2>
+
+<p>Sometimes others point out code that I could refactor better; it&rsquo;s easy to
+think I&rsquo;m done refactoring when my head has been stuck in the same code for the
+last 6+ hours.</p>
+
+<p>In the specs, point out where the testing tools could be better used.  For
+example, I often forget about some of the features of a stubbing library.  I
+sometimes write verbose, repetetive tests that could be extracted into a test
+helper.  I also find that sometimes other developers can help make my tests less
+fragile.  If you have an idea about improving the specs, share it!  It may be
+helpful to add custom matchers to your spec suite; most tools support this in
+some fashion.</p>
+
+<p>Do the same with the code! If you see where a specific refactoring can apply,
+say so.  Look for code smells; you can refer to <a href="http://c2.com/cgi/wiki?CodeSmell">Cunningham &amp; Cunningham&rsquo;s wiki
+page on Code Smells</a>.</p>
+
+<p>We need to strike a balance here, too.  The point of refactoring is to make
+the code easier to reason about, not to push indirection to its limits.</p>
+
+<h2>Ask for help.</h2>
+
+<p>It never hurts to have another pair of eyes on the code.  Ask a senior person in
+your organization (or another open-source developer) to take a look; most will
+be glad to.  If you know someone else with relevant experience, ask them!  Most
+developers will gladly look over a PR with you.</p>
+
+<p>If the PR contains a lot of code in a language you&rsquo;re not great at, be proactive
+and find someone who is, and ask them to review with you!  For example, if
+there&rsquo;s a lot of CSS, and you&rsquo;re not great at it, ask a frontend developer to
+help.</p>
+
+<h2>The Code Checklist</h2>
+
+<p>When it comes to most code (obviously this doesn&rsquo;t apply to markup or styling
+code), try the following checklist:</p>
+
+<ul>
+<li>Is every piece of code in the right place, i.e. model code in a model,
+controller logic in a controller, app-specific helper code in a helper,
+generic helper code in a library?</li>
+<li>Do all classes have only one responsibility?</li>
+<li>Do all methods do only one thing?</li>
+<li>If a method has a side-effect, is it clear from the name, and otherwise
+documented?</li>
+<li>Are all classes/methods/variables named properly so that the code is
+self-describing?</li>
+<li>Is everything as private as possible, i.e. only the intended public interface
+is public?</li>
+<li>Are too many things private?  This could be an indication that you should
+extract an object.</li>
+<li>Are all files within a reasonable size (e.g., less than 100 lines of code)?</li>
+<li>Are all methods less than 10 lines of code?</li>
+<li>No law of demeter violations (providing whole objects to methods when all
+that&rsquo;s needed is the value of one attribute of them)?</li>
+<li>Is everything tested? Is each thing tested enough?</li>
+<li>Are there tests for private methods? This is a code smell.</li>
+<li>Every class should have a small comment describing what it represents/does.
+Public methods should have comments describing what they are for, or when to
+call them, if this isn&rsquo;t obvious from the code. Comments shouldn&rsquo;t describe what
+the method does (this is visible from looking at the code).</li>
+<li>Are there any obvious performance-stupidities, like making a database query
+for each loop iteration, rather than using a more optimized query that loads
+all data at once?</li>
+<li>Spacing errors like no empty line between methods, or too many empty lines</li>
+<li>There shouldn&rsquo;t be any commented-out code.</li>
+<li>There should be no debug statements like &ldquo;console.log&rdquo; or the likes.</li>
+</ul>
+
+
+<p><em>Note: This article was first posted at <a href="http://blog.originate.com/blog/2014/09/29/effective-code-reviews/">blog.originate.com</a></em></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">David Beveridge</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-09-29T12:12:00-06:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:12 pm</span></time>
+      
+
+
+    </p>
+    
+      
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/08/01/ecmascript-6-default-rest-spread-params/" title="Previous Post: ECMAScript 6 - Default, Rest, and Spread Arguments">&laquo; ECMAScript 6 - Default, Rest, and Spread Arguments</a>
+      
+      
+    </p>
+  </footer>
+</article>
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/29/effective-code-reviews/">Effective Code Reviews</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/01/ecmascript-6-default-rest-spread-params/">ECMAScript 6 - Default, Rest, and Spread Arguments</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/ecmascript-6-arrow-functions/">ECMAScript 6 - Arrow Functions</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - David Beveridge -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+</body>
+</html>

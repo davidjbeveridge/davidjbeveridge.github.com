@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://davidbeveridge.net/blog/2014/09/29/effective-code-reviews/</loc>
+    <lastmod>2014-09-29T12:12:00-06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://davidbeveridge.net/blog/2014/08/01/ecmascript-6-default-rest-spread-params/</loc>
+    <lastmod>2014-08-01T07:00:00-06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://davidbeveridge.net/blog/2014/07/28/ecmascript-6-arrow-functions/</loc>
+    <lastmod>2014-07-28T07:00:00-06:00</lastmod>
+  </url>
+  <url>
+    <loc>http://davidbeveridge.net/blog/archives/</loc>
+  </url>
+  <url>
+    <loc>http://davidbeveridge.net/</loc>
+  </url>
+  <url>
+    <loc>http://davidbeveridge.net/blog/</loc>
+  </url>
+  <url>
+    <loc>http://davidbeveridge.net/resume/</loc>
+  </url>
+</urlset>

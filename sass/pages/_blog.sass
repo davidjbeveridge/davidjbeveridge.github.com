@@ -1,0 +1,57 @@
+.blog-index article
+  border-bottom: solid 4px $text-color
+  padding-bottom: 3em
+  margin-bottom: 4em
+  &:last-of-type
+    border-bottom: 0 none
+    padding-bottom: 0
+
+article.entry, .blog-index article
+  margin-bottom: 3em
+  .entry-content
+    margin-bottom: 3em
+  .entry-date
+    font-size: .8em
+    font-weight: bold
+    font-style: italic
+  .meta
+    margin:
+      bottom: 0
+    .byline, .entry-date
+      font-size: .8em
+      font-style: italic
+
+.blog-index
+  .entry-title
+    font-size: 1.5em
+
+  +desktop
+    float: left
+    width: 65%
+    margin-right: 5%
+
+    + aside.sidebar
+      float: left
+      width: 30%
+
+  a[rel=full-article]
+    display: inline-block
+    padding: .3em 1.5em
+    background: $link-color
+    color: $body-bg-color
+    text-decoration: none
+    font:
+      family: $sans
+      weight: bold
+
+    +mobile
+      display: block
+      line-height: 2em
+      text-align: center
+
+aside.sidebar
+  h1
+    font-size: 1.5em
+  ul
+    list-style: none
+    padding: 0

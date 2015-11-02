@@ -91,6 +91,7 @@ body > header[role=banner].normal
   z-index: 1000
   a
     color: $text-color
+    position: relative
   h1
     +desktop
       margin: 0
@@ -109,6 +110,19 @@ body > header[role=banner].normal
     margin: 0
     font-size: 1em
     display: none
+  ul li a:hover
+    color: $link-color
+    &::before, &::after
+      position: absolute
+      top: -.7em
+    &::before
+      left: -.6em
+      //content: '\00BB'
+      content: '{'
+    &::after
+      right: -.6em
+      //content: '\00AB'
+      content: '}'
   nav[role=navigation]
     position: relative
     +desktop

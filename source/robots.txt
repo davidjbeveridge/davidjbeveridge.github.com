@@ -2,6 +2,6 @@
 layout: null
 ---
 User-agent: *
-Disallow: 
+Disallow: /xmas-list/
 
 Sitemap: {{ site.url }}/sitemap.xml 

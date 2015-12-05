@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
+Disallow: /xmas-list/
 
 Sitemap: http://davidbeveridge.net/sitemap.xml 

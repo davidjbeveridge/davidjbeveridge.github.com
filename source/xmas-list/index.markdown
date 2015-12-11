@@ -21,24 +21,17 @@ Just a few ideas.
 
 - Light-roast, whole-bean coffee. In particular, I like Gevalia's Traditional
   Roast
+
 - Book: [The Juggling Act: Bringing Balance to Your Faith, Family, and Work][juggling-act]
 
-- [4x4 USB Peripheral Switch][usb-switch]
-
-- Book: [Rhinoceros Success][rhinoceros]
-
-- Book: [The Legacy Journey][legacy-journey]
-
-- Book: [Smart Money Smart Kids][smart-money]
-
+- Gift cards: [Chipotle][chipotle] and [Starbucks][starbucks] are good
+  choices.
 
 
 [padfolio]: http://www.amazon.com/dp/B007Y7QGAU/
 [hanes-tshirts]: http://www.amazon.com/dp/B00LVJ94VK/
 [fotl-tshirts]: http://www.amazon.com/dp/B008A8JUPU/
 [juggling-act]: http://www.amazon.com/gp/product/1434768740
-[legacy-journey]: http://www.daveramsey.com/store/prodD002.html
-[smart-money]: http://www.daveramsey.com/store/books/smart-money-smart-kids/prodSMSK.html
 [sandisk-usb]: http://www.amazon.com/dp/B00LLER2CS/
-[rhinoceros]: http://www.daveramsey.com/store/books/daves-library/rhinoceros-success/prodrhino.html
-[usb-switch]: http://www.amazon.com/dp/B00Y3CTDAY/
+[starbucks]: https://www.starbucks.com/shop/card/starbucks-card
+[chipotle]: https://chipotlestore.wgiftcard.com/responsive/personalize_responsive/chooseDesign/chipotle_responsive/1

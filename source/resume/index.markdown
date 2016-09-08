@@ -27,10 +27,10 @@ body_id: resume
 
 ## Work Experience
 
-### Originate, (2012-Present)
+### Originate, (2012-2016)
 [www.originate.com](http://www.originate.com)
 
-#### JavaScript Architect
+#### JavaScript Architect (Role)
 
 - Trained and mentored devlopers with a focus JavaScript best-practices and
   software engineering principles.
@@ -45,7 +45,7 @@ body_id: resume
 #### Senior Software Engineer
 
 - Developed multiple web applications across the whole stack, in both lead and
-  non-lead roles.
+  support roles.
 - Large percentage of work focused on front-end JavaScript with MV* frameworks
   like React.js and Backbone.js.
 - Used Test-Driven Development, code reviews, and constant refactoring to keep
@@ -56,10 +56,10 @@ body_id: resume
 - Deployment and DevOps work for multiple projects including work with Debian,
   Ubuntu, Apache, Passenger, MySQL, PostgreSQL, MongoDB, Redis, and others.
 
-***Keywords**: JavaScript, Ruby, Rails, Node.js, React.js, Flux, Backbone.js,
-Spine.js, Underscore.js, jQuery, CoffeeScript, Sass, LESSCSS, Bootstrap, Haml,
-Jade, Slim, HTML5, PHP, Python, Scala, Play, TDD, Code Review, Legacy Software,
-Refactoring, Mobile-first*
+***Keywords**: JavaScript, Ruby, Rails, Node.js, React.js, Redux, Flux,
+Backbone.js, Spine.js, Underscore.js, jQuery, CoffeeScript, Sass, LESSCSS,
+Bootstrap, Haml, Jade, Slim, HTML5, PHP, Python, Scala, Play, TDD, Code
+Review, Legacy Software, Refactoring, Mobile-first*
 
 ### Card Gnome, Inc. (2010-2012)
 [www.cardgnome.com](http://www.cardgnome.com)

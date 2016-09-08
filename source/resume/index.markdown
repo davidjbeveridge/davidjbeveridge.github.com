@@ -16,7 +16,7 @@ body_id: resume
 
 - Team leader with knowledge of software engineering principles and an eye
   toward quality, scalability, and developer productivity.
-- Seven years experience building web applications, doing full-stack development
+- Eight years experience building web applications, doing full-stack development
   with Ruby on Rails, Node.js, JavaScript MV*, CoffeeScript, PHP, Scala/Play.
 - Significant front-end development using semantic HTML, CSS3, JavaScript, and
   related technologies.

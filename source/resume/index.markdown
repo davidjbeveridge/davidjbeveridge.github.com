@@ -16,7 +16,7 @@ body_id: resume
 
 - Team leader with knowledge of software engineering principles and an eye
   toward quality, scalability, and developer productivity.
-- Eight years experience building web applications, doing full-stack development
+- Seven years experience building web applications, doing full-stack development
   with Ruby on Rails, Node.js, JavaScript MV*, CoffeeScript, PHP, Scala/Play.
 - Significant front-end development using semantic HTML, CSS3, JavaScript, and
   related technologies.
@@ -57,9 +57,9 @@ body_id: resume
   Ubuntu, Apache, Passenger, MySQL, PostgreSQL, MongoDB, Redis, and others.
 
 ***Keywords**: JavaScript, Ruby, Rails, Node.js, React.js, Redux, Flux,
-Backbone.js, Spine.js, Underscore.js, jQuery, CoffeeScript, Sass, LESSCSS,
-Bootstrap, Haml, Jade, Slim, HTML5, PHP, Python, Scala, Play, TDD, Code
-Review, Legacy Software, Refactoring, Mobile-first*
+Backbone.js, Spine.js, Underscore.js, jQuery, Telerik KendoUI, CoffeeScript, Sass, LESSCSS,
+Bootstrap, Responsive, Haml, Jade, Slim, HTML5, PHP, Python, Scala, Play, TDD, Code
+Review, Legacy Software, Refactoring, Mobile-first, Git, GitHub*
 
 ### Card Gnome, Inc. (2010-2012)
 [www.cardgnome.com](http://www.cardgnome.com)

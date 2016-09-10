@@ -152,4 +152,4 @@ Migrations. Much of the information for this talk was taken from Chapter 6, and
 opined in person.
 
 
-<a href="/downloads/david-beveridge-resume-20160907.pdf" class="resume-pdf-link hide-print">Download PDF</a>
+<a href="/downloads/david-beveridge-resume-20160910.pdf" class="resume-pdf-link hide-print">Download PDF</a>

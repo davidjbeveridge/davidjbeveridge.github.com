@@ -30,7 +30,7 @@ body_id: resume
 ### Originate, (2012-2016)
 [www.originate.com](http://www.originate.com)
 
-#### JavaScript Architect (Role)
+#### JavaScript Architect
 
 - Trained and mentored devlopers with a focus JavaScript best-practices and
   software engineering principles.

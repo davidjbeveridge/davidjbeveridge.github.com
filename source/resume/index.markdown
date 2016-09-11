@@ -17,13 +17,14 @@ body_id: resume
 - Team leader with knowledge of software engineering principles and an eye
   toward quality, scalability, and developer productivity.
 - Seven years experience building web applications, doing full-stack development
-  with Ruby on Rails, Node.js, JavaScript MV*, CoffeeScript, PHP, Scala/Play.
-- Significant front-end development using semantic HTML, CSS3, JavaScript, and
-  related technologies.
-- Breadth of knowledge across several stacks, build systems, roles, engineering
-  practices, and project management.
+  with Ruby on Rails, Node.js, JavaScript MV\*, ES6/ES7/ES20\*, CoffeeScript, PHP, Scala/Play.
+- Significant experience building front-end and single-page applicationge
+  using semantic HTML, CSS3, JavaScript (React.js, Redux, Backbone.js, etc),
+  and more
 - Depth of knowledge in JavaScript (both front-end and back-end), HTML, CSS, and
   Software Engineering.
+- Breadth of knowledge across several stacks, build systems, roles, engineering
+  practices, and project management.
 
 ## Work Experience
 
@@ -46,7 +47,7 @@ body_id: resume
 
 - Developed multiple web applications across the whole stack, in both lead and
   support roles.
-- Large percentage of work focused on front-end JavaScript with MV* frameworks
+- Large percentage of work focused on front-end JavaScript with MV\* frameworks
   like React.js and Backbone.js.
 - Used Test-Driven Development, code reviews, and constant refactoring to keep
   the codebase clean and maintainable, and keep all developers familiar with
@@ -56,10 +57,12 @@ body_id: resume
 - Deployment and DevOps work for multiple projects including work with Debian,
   Ubuntu, Apache, Passenger, MySQL, PostgreSQL, MongoDB, Redis, and others.
 
-***Keywords**: JavaScript, Ruby, Rails, Node.js, React.js, Redux, Flux,
-Backbone.js, Spine.js, Underscore.js, jQuery, Telerik KendoUI, CoffeeScript, Sass, LESSCSS,
-Bootstrap, Responsive, Haml, Jade, Slim, HTML5, PHP, Python, Scala, Play, TDD, Code
-Review, Legacy Software, Refactoring, Mobile-first, Git, GitHub*
+***Keywords**: JavaScript, Ruby, Rails, Sinatra, Grape.rb, Node.js,
+Express.js, React.js, Redux, Flux, Backbone.js, Spine.js, Underscore.js,
+jQuery, Telerik KendoUI, CoffeeScript, Sass, LESSCSS, Stylus, Bootstrap,
+Responsive Design, Haml, Jade, Slim, HTML5, Markdown, PHP, Python, Scala,
+Play, TDD, Code Review, Legacy Software, Refactoring, Mobile-first, Git,
+GitHub*
 
 ### Card Gnome, Inc. (2010-2012)
 [www.cardgnome.com](http://www.cardgnome.com)

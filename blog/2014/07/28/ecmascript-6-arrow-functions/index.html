@@ -78,262 +78,247 @@ convenient labmda syntax: Arrow Functions. Personally, I get sick of typing &hel
 <div class="entry-content"><p>One of my favorite proposals for ECMAScript 6 is the proposal to add a
 convenient labmda syntax: <a href="http://tc39wiki.calculist.org/es6/arrow-functions/">Arrow Functions</a>.</p>
 
-<p>Personally, I get sick of typing <code>function (){}</code> all the time (ok, I don&rsquo;t
+<p>Personally, I get sick of typing <code>function (){}</code> all the time (ok, I don’t
 usually type it, my editor takes care of it).</p>
 
 <p>Say I want to do some functional stuff (silly example):</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">];</span>
-</span><span class='line'><span class="c1">// map a list of even/odd pairs, multiplied</span>
-</span><span class='line'><span class="nx">numbers</span>
-</span><span class='line'>  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;}</span> <span class="p">)</span>
-</span><span class='line'>  <span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">numbers</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="p">}</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">];</span>
+</span><span class="line"><span class="c1">// map a list of even/odd pairs, multiplied</span>
+</span><span class="line"><span class="nx">numbers</span>
+</span><span class="line">  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;}</span> <span class="p">)</span>
+</span><span class="line">  <span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">numbers</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="p">}</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>Yay! Much more convenient.  But, arrow functions are not <em>exactly</em> like
 <code>function</code>s.  How, you ask?</p>
 
 <!--more-->
 
-
-<h3>Arrow functions are still functions</h3>
+<h3 id="arrow-functions-are-still-functions">Arrow functions are still functions</h3>
 
 <p>Arrow functions still respond to <code>typeof</code> and <code>instanceof</code> the same as a
 function:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">typeof</span> <span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span> <span class="p">);</span> <span class="c1">// =&gt; &quot;function&quot;</span>
-</span><span class='line'><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span> <span class="p">)</span> <span class="k">instanceof</span> <span class="nb">Function</span><span class="p">;</span> <span class="c1">// =&gt; true</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="k">typeof</span> <span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span> <span class="p">);</span> <span class="c1">// =&gt; &quot;function&quot;</span>
+</span><span class="line"><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span> <span class="p">)</span> <span class="k">instanceof</span> <span class="nb">Function</span><span class="p">;</span> <span class="c1">// =&gt; true</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>And their <code>constructor</code> property is still <code>Function</code>:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span> <span class="p">).</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Function</span><span class="p">;</span> <span class="c1">// =&gt; true</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="p">(</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span> <span class="p">).</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Function</span><span class="p">;</span> <span class="c1">// =&gt; true</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>And they still support the typical function properties:</p>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">let</span> <span class="nx">fn</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+</span><span class="line"><span class="k">typeof</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">;</span> <span class="c1">// =&gt; &quot;function&quot;</span>
+</span><span class="line"><span class="k">typeof</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">bind</span><span class="p">;</span> <span class="c1">// =&gt; &quot;function&quot;</span>
+</span><span class="line"><span class="k">typeof</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">call</span><span class="p">;</span> <span class="c1">// =&gt; &quot;function&quot;</span>
+</span><span class="line"><span class="nx">fn</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span> <span class="c1">// =&gt; &quot;(a,b,c) =&gt; {}&quot;</span>
+</span><span class="line"><span class="nx">fn</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// =&gt; 3</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">let</span> <span class="nx">fn</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
-</span><span class='line'><span class="k">typeof</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">;</span> <span class="c1">// =&gt; &quot;function&quot;</span>
-</span><span class='line'><span class="k">typeof</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">bind</span><span class="p">;</span> <span class="c1">// =&gt; &quot;function&quot;</span>
-</span><span class='line'><span class="k">typeof</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">call</span><span class="p">;</span> <span class="c1">// =&gt; &quot;function&quot;</span>
-</span><span class='line'><span class="nx">fn</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span> <span class="c1">// =&gt; &quot;(a,b,c) =&gt; {}&quot;</span>
-</span><span class='line'><span class="nx">fn</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// =&gt; 3</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And you can still use <code>arguments</code> (although, you probably won&rsquo;t need to if you
+<p>And you can still use <code>arguments</code> (although, you probably won’t need to if you
 use the new default/rest/spread arguments):</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">let</span> <span class="nx">fn</span>  <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">arguments</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="nx">fn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span> <span class="c1">// =&gt; { 0: 1, 1: 2, 2: 3, 3: &quot;foo&quot;, 4: &quot;bar&quot;, callee: fn(), length: 5};</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">let</span> <span class="nx">fn</span>  <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">arguments</span><span class="p">;</span> <span class="p">}</span>
+</span><span class="line"><span class="nx">fn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span> <span class="c1">// =&gt; { 0: 1, 1: 2, 2: 3, 3: &quot;foo&quot;, 4: &quot;bar&quot;, callee: fn(), length: 5};</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-
-<h3>Arrow functions are lexically bound to the current context.</h3>
+<h3 id="arrow-functions-are-lexically-bound-to-the-current-context">Arrow functions are lexically bound to the current context.</h3>
 
 <p>With regular <code>function</code>s, we can do this:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">david</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">firstName</span><span class="o">:</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">lastName</span><span class="o">:</span> <span class="s1">&#39;Beveridge&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">fullName</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="p">};</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">david</span><span class="p">.</span><span class="nx">fullName</span><span class="p">();</span> <span class="c1">// =&gt; &quot;David Beveridge&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">var</span> <span class="nx">david</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="line">  <span class="nx">firstName</span><span class="o">:</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span>
+</span><span class="line">  <span class="nx">lastName</span><span class="o">:</span> <span class="s1">&#39;Beveridge&#39;</span><span class="p">,</span>
+</span><span class="line">  <span class="nx">fullName</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span> <span class="p">}</span>
+</span><span class="line"><span class="p">};</span>
+</span><span class="line">
+</span><span class="line"><span class="nx">david</span><span class="p">.</span><span class="nx">fullName</span><span class="p">();</span> <span class="c1">// =&gt; &quot;David Beveridge&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>With an arrow function, we get a different result:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">david</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">firstName</span><span class="o">:</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">lastName</span><span class="o">:</span> <span class="s1">&#39;Beveridge&#39;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">fullName</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="p">};</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">david</span><span class="p">.</span><span class="nx">fullName</span><span class="p">();</span> <span class="c1">// =&gt; &quot;undefined undefined&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">var</span> <span class="nx">david</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="line">  <span class="nx">firstName</span><span class="o">:</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span>
+</span><span class="line">  <span class="nx">lastName</span><span class="o">:</span> <span class="s1">&#39;Beveridge&#39;</span><span class="p">,</span>
+</span><span class="line">  <span class="nx">fullName</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span> <span class="p">}</span>
+</span><span class="line"><span class="p">};</span>
+</span><span class="line">
+</span><span class="line"><span class="nx">david</span><span class="p">.</span><span class="nx">fullName</span><span class="p">();</span> <span class="c1">// =&gt; &quot;undefined undefined&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>How come that happened? Because with an arrow function, <code>this</code> refers to the
 same <code>this</code> that was in scope at the time of declaration.  In this case, <code>this</code>
-was <code>window</code> (if you&rsquo;re running in a browser) or <code>global</code> (if you&rsquo;re running in
+was <code>window</code> (if you’re running in a browser) or <code>global</code> (if you’re running in
 Node).</p>
 
-<h3>Arrow functions can&rsquo;t be dynamically re-bound.</h3>
+<h3 id="arrow-functions-cant-be-dynamically-re-bound">Arrow functions can’t be dynamically re-bound.</h3>
 
-<p>This really goes back to the lexical binging; you can&rsquo;t change the binding of an
+<p>This really goes back to the lexical binging; you can’t change the binding of an
 arrow function.  With regular <code>function</code>s, we can do cool stuff like this:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Global Name&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">david</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;David Beveridge&#39;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">getName</span><span class="p">();</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Rebind w/ Function.prototype.bind</span>
-</span><span class='line'><span class="nx">getName</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">david</span><span class="p">)();</span> <span class="c1">// =&gt; &quot;David Beveridge&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Rebind with Function.prototype.call</span>
-</span><span class='line'><span class="nx">getName</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">david</span><span class="p">);</span> <span class="c1">// =&gt; &quot;David Beveridge&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Rebind with Function.prototype.apply</span>
-</span><span class='line'><span class="nx">getName</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">david</span><span class="p">);</span> <span class="c1">// =&gt; &quot;David Beveridge&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Global Name&quot;</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">david</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="line">  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;David Beveridge&#39;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="line">  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="nx">getName</span><span class="p">();</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// Rebind w/ Function.prototype.bind</span>
+</span><span class="line"><span class="nx">getName</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">david</span><span class="p">)();</span> <span class="c1">// =&gt; &quot;David Beveridge&quot;</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// Rebind with Function.prototype.call</span>
+</span><span class="line"><span class="nx">getName</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">david</span><span class="p">);</span> <span class="c1">// =&gt; &quot;David Beveridge&quot;</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// Rebind with Function.prototype.apply</span>
+</span><span class="line"><span class="nx">getName</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">david</span><span class="p">);</span> <span class="c1">// =&gt; &quot;David Beveridge&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>This is not the case with arrows, though:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Global Name&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">david</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;David Beveridge&#39;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">getName</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">getName</span><span class="p">();</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Rebind w/ Function.prototype.bind</span>
-</span><span class='line'><span class="nx">getName</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">david</span><span class="p">)();</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Rebind with Function.prototype.call</span>
-</span><span class='line'><span class="nx">getName</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">david</span><span class="p">);</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Rebind with Function.prototype.apply</span>
-</span><span class='line'><span class="nx">getName</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">david</span><span class="p">);</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Global Name&quot;</span><span class="p">;</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">david</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="line">  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;David Beveridge&#39;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">getName</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class="line">  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="nx">getName</span><span class="p">();</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// Rebind w/ Function.prototype.bind</span>
+</span><span class="line"><span class="nx">getName</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">david</span><span class="p">)();</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// Rebind with Function.prototype.call</span>
+</span><span class="line"><span class="nx">getName</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">david</span><span class="p">);</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// Rebind with Function.prototype.apply</span>
+</span><span class="line"><span class="nx">getName</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">david</span><span class="p">);</span> <span class="c1">// =&gt; &quot;Global Name&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-
-<h3>Arrow functions can&rsquo;t be used as constructors</h3>
+<h3 id="arrow-functions-cant-be-used-as-constructors">Arrow functions can’t be used as constructors</h3>
 
 <p>Constructor functions sort of rely on dynamic rebinding for access to the <code>this</code>
 property:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">TestConstructor</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">this</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">new</span> <span class="nx">TestConstructor</span><span class="p">;</span> <span class="c1">// =&gt; TestConstructor {foo: &quot;bar&quot;}</span>
-</span><span class='line'><span class="nx">TestConstructor</span><span class="p">();</span> <span class="c1">// Whoops! This sets window.foo to &quot;bar&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span> <span class="nx">TestConstructor</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="line">  <span class="k">this</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="k">new</span> <span class="nx">TestConstructor</span><span class="p">;</span> <span class="c1">// =&gt; TestConstructor {foo: &quot;bar&quot;}</span>
+</span><span class="line"><span class="nx">TestConstructor</span><span class="p">();</span> <span class="c1">// Whoops! This sets window.foo to &quot;bar&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-
-<p>Since arrow functions can&rsquo;t be rebound, ever, it follows that they can&rsquo;t be
+<p>Since arrow functions can’t be rebound, ever, it follows that they can’t be
 constructors:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">let</span> <span class="nx">TestConstructor</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">new</span> <span class="nx">TestConstructor</span><span class="p">();</span> <span class="c1">// =&gt; TypeError: TestConstructor is not a constructor</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">let</span> <span class="nx">TestConstructor</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+</span><span class="line">
+</span><span class="line"><span class="k">new</span> <span class="nx">TestConstructor</span><span class="p">();</span> <span class="c1">// =&gt; TypeError: TestConstructor is not a constructor</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h2 id="the-wrap-up">The wrap up</h2>
 
-<h2>The wrap up</h2>
-
-<p>That&rsquo;s about it.  Arrow functions are a great syntactical shortcut for cases
+<p>That’s about it.  Arrow functions are a great syntactical shortcut for cases
 where you want a closure that keeps its binding.  Remember:</p>
 
 <ul>
-<li>Arrows keep the <code>this</code> binding where they were declared</li>
-<li>Arrow functions can&rsquo;t be rebound</li>
-<li>No use of the word <code>new</code></li>
+  <li>Arrows keep the <code>this</code> binding where they were declared</li>
+  <li>Arrow functions can’t be rebound</li>
+  <li>No use of the word <code>new</code></li>
 </ul>
-
 
 <p>On their own, they may not seem that powerful, but they can do some cool stuff
 when you use them in combination with other ES6 features like
 default/rest/spread arguments, destructuring, itererators, <code>let</code>/<code>const</code>, and
 the like.  Stay tuned for the latest on those.</p>
+
 </div>
 
 

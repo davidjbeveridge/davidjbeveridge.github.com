@@ -79,186 +79,173 @@ variable numbers of arguments more easily? Ever written code like this? 1
 <div class="entry-content"><p>Ever wanted a default value for an arugment? Or the ability to work with
 variable numbers of arguments more easily?  Ever written code like this?</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">bar</span> <span class="o">=</span> <span class="nx">bar</span> <span class="o">||</span> <span class="s1">&#39;default value&#39;</span><span class="p">;</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">theRest</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">  <span class="nx">bar</span> <span class="o">=</span> <span class="nx">bar</span> <span class="o">||</span> <span class="s1">&#39;default value&#39;</span><span class="p">;</span>
+</span><span class="line">  <span class="kd">var</span> <span class="nx">theRest</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-
-<p>Perhaps you&rsquo;re familiar with <a href="http://coffeescript.org/#splats">CoffeeScript&rsquo;s splat arguments</a>
-(<code>...</code>); or, if you&rsquo;ve ever used Ruby, you&rsquo;ll be familiar with
+<p>Perhaps you’re familiar with <a href="http://coffeescript.org/#splats">CoffeeScript’s splat arguments</a>
+(<code>...</code>); or, if you’ve ever used Ruby, you’ll be familiar with
 <a href="http://pivotallabs.com/ruby-pearls-vol-1-the-splat/">the Ruby splat operator</a>.</p>
 
-<p>Maybe you&rsquo;ve needed to use an array as an argument list? Ever done this?</p>
+<p>Maybe you’ve needed to use an array as an argument list? Ever done this?</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
-</span><span class='line'><span class="nx">doSomethingWithArgs</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+</span><span class="line"><span class="nx">doSomethingWithArgs</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>The days of using <code>[].slice.call</code> and <code>fn.apply(null, args)</code> are over!
 Finally, JavaScript is introducing a splat-like operator!</strong>  Say hello to
 default, rest, and spread arguments!</p>
 
 <!--more-->
-
-
-<h2>Default Arguments</h2>
+<p>## Default Arguments</p>
 
 <p>Taking default arguments is now as simple as</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="o">=</span><span class="s1">&#39;default value&#39;</span><span class="p">)</span> <span class="p">{}</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="o">=</span><span class="s1">&#39;default value&#39;</span><span class="p">)</span> <span class="p">{}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>Pretty neat, huh?</p>
 
-<h2>Rest Arguments</h2>
+<h2 id="rest-arguments">Rest Arguments</h2>
 
 <p>You need to get the tail of your argument list? Just use <code>...</code></p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="p">...</span><span class="nx">bars</span><span class="p">)</span> <span class="p">{}</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="p">...</span><span class="nx">bars</span><span class="p">)</span> <span class="p">{}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h2 id="spread-arguments">Spread Arguments</h2>
 
-<h2>Spread Arguments</h2>
-
-<p>If you&rsquo;ve ever needed to apply an Array as a list of arguments, you can now do
+<p>If you’ve ever needed to apply an Array as a list of arguments, you can now do
 it like this:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">args</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
-</span><span class='line'><span class="nx">doSomethingWithArgs</span><span class="p">(...</span><span class="nx">args</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">var</span> <span class="nx">args</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+</span><span class="line"><span class="nx">doSomethingWithArgs</span><span class="p">(...</span><span class="nx">args</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>Spread arguments should still work with default and rest arguments, as well as
 argument destructuring.  Support for this is a little spotty, though.  The
 following example worked in FireFox v31.0; Traceur validated the code, but
 failed to execute it.</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">familyInfo</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">spouse</span><span class="o">=</span><span class="s2">&quot;Lucy&quot;</span><span class="p">,</span> <span class="p">...</span><span class="nx">children</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">out</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-</span><span class='line'>  <span class="nx">out</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;My name is &quot;</span><span class="o">+</span><span class="nx">name</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">spouse</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">out</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;  I&#39;m married to &quot;</span><span class="o">+</span><span class="nx">spouse</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">children</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">out</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;  My children are &quot;</span><span class="o">+</span><span class="nx">children</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>  <span class="k">return</span> <span class="nx">out</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">dependents</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Lucy&quot;</span><span class="p">,</span> <span class="s2">&quot;Little Ricky&quot;</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">familyInfo</span><span class="p">(</span><span class="s2">&quot;Ricky&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="c1">// =&gt; &quot;My name is Ricky.  I&#39;m married to Lucy.&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">familyInfo</span><span class="p">(</span><span class="s2">&quot;Ricky&quot;</span><span class="p">,</span> <span class="p">...</span><span class="nx">dependents</span><span class="p">);</span>
-</span><span class='line'><span class="c1">// =&gt; &quot;My name is Ricky.  I&#39;m married to Lucy.  My children are Little Ricky.&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span> <span class="nx">familyInfo</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">spouse</span><span class="o">=</span><span class="s2">&quot;Lucy&quot;</span><span class="p">,</span> <span class="p">...</span><span class="nx">children</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">  <span class="kd">var</span> <span class="nx">out</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class="line">  <span class="nx">out</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;My name is &quot;</span><span class="o">+</span><span class="nx">name</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+</span><span class="line">  <span class="k">if</span><span class="p">(</span><span class="nx">spouse</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="nx">out</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;  I&#39;m married to &quot;</span><span class="o">+</span><span class="nx">spouse</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+</span><span class="line">  <span class="p">}</span>
+</span><span class="line">  <span class="k">if</span><span class="p">(</span><span class="nx">children</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">    <span class="nx">out</span> <span class="o">+=</span> <span class="p">(</span><span class="s2">&quot;  My children are &quot;</span><span class="o">+</span><span class="nx">children</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+</span><span class="line">  <span class="p">}</span>
+</span><span class="line">  <span class="k">return</span> <span class="nx">out</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">var</span> <span class="nx">dependents</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Lucy&quot;</span><span class="p">,</span> <span class="s2">&quot;Little Ricky&quot;</span><span class="p">];</span>
+</span><span class="line">
+</span><span class="line"><span class="nx">familyInfo</span><span class="p">(</span><span class="s2">&quot;Ricky&quot;</span><span class="p">);</span>
+</span><span class="line"><span class="c1">// =&gt; &quot;My name is Ricky.  I&#39;m married to Lucy.&quot;</span>
+</span><span class="line">
+</span><span class="line"><span class="nx">familyInfo</span><span class="p">(</span><span class="s2">&quot;Ricky&quot;</span><span class="p">,</span> <span class="p">...</span><span class="nx">dependents</span><span class="p">);</span>
+</span><span class="line"><span class="c1">// =&gt; &quot;My name is Ricky.  I&#39;m married to Lucy.  My children are Little Ricky.&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-
-<h2>Experiments with defaults and rest params</h2>
+<h2 id="experiments-with-defaults-and-rest-params">Experiments with defaults and rest params</h2>
 
 <p>So, we saw an example above where default and splat played nice (at least in
-FireFox); here&rsquo;s one that doesn&rsquo;t work:</p>
+FireFox); here’s one that doesn’t work:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">badArgsTest</span><span class="p">(...</span><span class="nx">args</span><span class="p">,</span> <span class="nx">other</span><span class="p">)</span> <span class="p">{}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// FireFox throws: &quot;SyntaxError: parameter after rest parameter&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span> <span class="nx">badArgsTest</span><span class="p">(...</span><span class="nx">args</span><span class="p">,</span> <span class="nx">other</span><span class="p">)</span> <span class="p">{}</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// FireFox throws: &quot;SyntaxError: parameter after rest parameter&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>Ok.  So, rest parameters come last.  Always.</p>
 
 <p>Try this one:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(...</span><span class="nx">args</span><span class="o">=</span><span class="p">[])</span> <span class="p">{})</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// FireFox throws: &quot;SyntaxError: rest parameter may not have a default&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="p">(</span><span class="kd">function</span><span class="p">(...</span><span class="nx">args</span><span class="o">=</span><span class="p">[])</span> <span class="p">{})</span>
+</span><span class="line">
+</span><span class="line"><span class="c1">// FireFox throws: &quot;SyntaxError: rest parameter may not have a default&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<p>Ok.  So, don’t do that.</p>
 
-<p>Ok.  So, don&rsquo;t do that.</p>
-
-<h3>Default argument order</h3>
+<h3 id="default-argument-order">Default argument order</h3>
 
 <p>Guess what?  You can use default arguments in pretty much any order (as long as
 they come before the rest argument).  This one really stumped me at first, but I
 got it: use <code>undefined</code></p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">testDefaults</span><span class="p">(</span><span class="nx">foo</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span> <span class="nx">bang</span><span class="o">=</span><span class="s1">&#39;whizz&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">return</span> <span class="p">[</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span> <span class="nx">bang</span><span class="p">];</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">testDefaults</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="s1">&#39;whir&#39;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">);</span> <span class="c1">// =&gt; [&#39;bar&#39;, &#39;whir&#39;, &#39;whizz&#39;]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span> <span class="nx">testDefaults</span><span class="p">(</span><span class="nx">foo</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span> <span class="nx">bang</span><span class="o">=</span><span class="s1">&#39;whizz&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">  <span class="k">return</span> <span class="p">[</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">baz</span><span class="p">,</span> <span class="nx">bang</span><span class="p">];</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line">
+</span><span class="line"><span class="nx">testDefaults</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="s1">&#39;whir&#39;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">);</span> <span class="c1">// =&gt; [&#39;bar&#39;, &#39;whir&#39;, &#39;whizz&#39;]</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>I also tried this with some falsy values; they seem to actually pass through:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">testDefaults</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s1">&#39;whir&#39;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span> <span class="c1">// =&gt; [null, &#39;whir&#39;, null]</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="nx">testDefaults</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s1">&#39;whir&#39;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span> <span class="c1">// =&gt; [null, &#39;whir&#39;, null]</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-
-<h2>The wrap up</h2>
+<h2 id="the-wrap-up">The wrap up</h2>
 
 <ul>
-<li>Defaults: <code>(someArg = 'default', other = 4) =&gt; {}</code>; <code>someArg</code> and <code>other</code> can
+  <li>Defaults: <code>(someArg = 'default', other = 4) =&gt; {}</code>; <code>someArg</code> and <code>other</code> can
 be overwritten, but will carry default values.</li>
-<li>Pass <code>undefined</code> if you want the default value for a positional argument</li>
-<li>Rest: <code>(arg1, ...args) =&gt; {}</code>; <code>args</code> will be an <code>Array</code> of everything after
+  <li>Pass <code>undefined</code> if you want the default value for a positional argument</li>
+  <li>Rest: <code>(arg1, ...args) =&gt; {}</code>; <code>args</code> will be an <code>Array</code> of everything after
 <code>arg1</code>.</li>
-<li>Use rest arguments as the last argument in your function</li>
-<li>Spread: <code>var args = [1,2,3]; someFunction(...args);</code> works great, no more
+  <li>Use rest arguments as the last argument in your function</li>
+  <li>Spread: <code>var args = [1,2,3]; someFunction(...args);</code> works great, no more
 using <code>apply</code> for this trick</li>
 </ul>
 
-
-<p>Next time, I&rsquo;ll take a look at argument destructuring, which is a great
+<p>Next time, I’ll take a look at argument destructuring, which is a great
 complement to rest, default, and spread arguments.</p>
+
 </div>
 
 

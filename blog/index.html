@@ -80,7 +80,7 @@ whole team in sync with the latest changes. My favorite tool for &hellip;">
 
   <div class="entry-content"><p>Code reviews are a great way to improve code quality, catch bugs, and keep your
 whole team in sync with the latest changes.  My favorite tool for doing a code
-review is still Github&rsquo;s <a href="https://help.github.com/articles/using-pull-requests">Pull Request</a> feature, because of the
+review is still Github’s <a href="https://help.github.com/articles/using-pull-requests">Pull Request</a> feature, because of the
 easily-accessible diffs, inline comments, and commit-level and PR-level views of
 the file changes.</p>
 
@@ -88,26 +88,24 @@ the file changes.</p>
 tips:</p>
 
 <ul>
-<li>Actually review PR&rsquo;s; telling an author to &ldquo;just ship it&rdquo; is detrimental.</li>
-<li>Senior developers <em>want</em> you to review their code; don&rsquo;t be scared.</li>
-<li>Close PR&rsquo;s that don&rsquo;t have specs</li>
-<li>If spec coverage is sparse, discuss it with the author (nicely).</li>
-<li>Spec descriptions should accurately reflect the behavior of the module/method
+  <li>Actually review PR’s; telling an author to “just ship it” is detrimental.</li>
+  <li>Senior developers <em>want</em> you to review their code; don’t be scared.</li>
+  <li>Close PR’s that don’t have specs</li>
+  <li>If spec coverage is sparse, discuss it with the author (nicely).</li>
+  <li>Spec descriptions should accurately reflect the behavior of the module/method
 they describe.</li>
-<li>Ask questions instead of making statements; the author likely put more thought
-into the code than you are aware of, and they&rsquo;ve already solved the problem
+  <li>Ask questions instead of making statements; the author likely put more thought
+into the code than you are aware of, and they’ve already solved the problem
 once.</li>
-<li>Look for design problems:
-
-<ul>
-<li>Does this change solve a real problem? is it worth solving?</li>
-<li>Given the constraints, is the overall approach correct and reasonable?</li>
+  <li>Look for design problems:
+    <ul>
+      <li>Does this change solve a real problem? is it worth solving?</li>
+      <li>Given the constraints, is the overall approach correct and reasonable?</li>
+    </ul>
+  </li>
+  <li>Look for <a href="http://c2.com/cgi/wiki?CodeSmell">code smells</a> and suggest refactorings.</li>
+  <li>Ask for help with reviewing code that is outside your area of expertise.</li>
 </ul>
-</li>
-<li>Look for <a href="http://c2.com/cgi/wiki?CodeSmell">code smells</a> and suggest refactorings.</li>
-<li>Ask for help with reviewing code that is outside your area of expertise.</li>
-</ul>
-
 
 </div>
   
@@ -144,29 +142,27 @@ once.</li>
   <div class="entry-content"><p>Ever wanted a default value for an arugment? Or the ability to work with
 variable numbers of arguments more easily?  Ever written code like this?</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">bar</span> <span class="o">=</span> <span class="nx">bar</span> <span class="o">||</span> <span class="s1">&#39;default value&#39;</span><span class="p">;</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">theRest</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">function</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="line">  <span class="nx">bar</span> <span class="o">=</span> <span class="nx">bar</span> <span class="o">||</span> <span class="s1">&#39;default value&#39;</span><span class="p">;</span>
+</span><span class="line">  <span class="kd">var</span> <span class="nx">theRest</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-
-<p>Perhaps you&rsquo;re familiar with <a href="http://coffeescript.org/#splats">CoffeeScript&rsquo;s splat arguments</a>
-(<code>...</code>); or, if you&rsquo;ve ever used Ruby, you&rsquo;ll be familiar with
+<p>Perhaps you’re familiar with <a href="http://coffeescript.org/#splats">CoffeeScript’s splat arguments</a>
+(<code>...</code>); or, if you’ve ever used Ruby, you’ll be familiar with
 <a href="http://pivotallabs.com/ruby-pearls-vol-1-the-splat/">the Ruby splat operator</a>.</p>
 
-<p>Maybe you&rsquo;ve needed to use an array as an argument list? Ever done this?</p>
+<p>Maybe you’ve needed to use an array as an argument list? Ever done this?</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
-</span><span class='line'><span class="nx">doSomethingWithArgs</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+</span><span class="line"><span class="nx">doSomethingWithArgs</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>The days of using <code>[].slice.call</code> and <code>fn.apply(null, args)</code> are over!
 Finally, JavaScript is introducing a splat-like operator!</strong>  Say hello to
@@ -207,23 +203,22 @@ default, rest, and spread arguments!</p>
   <div class="entry-content"><p>One of my favorite proposals for ECMAScript 6 is the proposal to add a
 convenient labmda syntax: <a href="http://tc39wiki.calculist.org/es6/arrow-functions/">Arrow Functions</a>.</p>
 
-<p>Personally, I get sick of typing <code>function (){}</code> all the time (ok, I don&rsquo;t
+<p>Personally, I get sick of typing <code>function (){}</code> all the time (ok, I don’t
 usually type it, my editor takes care of it).</p>
 
 <p>Say I want to do some functional stuff (silly example):</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">];</span>
-</span><span class='line'><span class="c1">// map a list of even/odd pairs, multiplied</span>
-</span><span class='line'><span class="nx">numbers</span>
-</span><span class='line'>  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;}</span> <span class="p">)</span>
-</span><span class='line'>  <span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">numbers</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="p">}</span> <span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="javascript"><span class="line"><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">];</span>
+</span><span class="line"><span class="c1">// map a list of even/odd pairs, multiplied</span>
+</span><span class="line"><span class="nx">numbers</span>
+</span><span class="line">  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">;}</span> <span class="p">)</span>
+</span><span class="line">  <span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">numbers</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span> <span class="p">}</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>Yay! Much more convenient.  But, arrow functions are not <em>exactly</em> like
 <code>function</code>s.  How, you ask?</p>

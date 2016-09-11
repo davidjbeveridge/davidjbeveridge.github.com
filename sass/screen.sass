@@ -6,22 +6,15 @@
 @import "base/typography"
 @import "base/solarized"
 
-body
-  +desktop
-    padding: 1% 10%
-      top: 4.5em
-  +tablet
-    padding: 1% 5%
-      top: 4.5em
+body,html
+  background: $body-bg-color
+  font: 16pt/1.7 $serif
+  color: $text-color
   +print
     font: 12pt/1.5 $serif
-    padding: 3% 10%
-  background: $body-bg-color
-  font: 15pt/1.7 $serif
-  color: $text-color
 
 address, blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, li, ol, p, pre, table, ul
-  margin-bottom: 1em
+  margin-bottom: 1rem
 
 h1, h2, h3, h4, h5, h6
   page-break-after: avoid
@@ -31,17 +24,17 @@ h1, h2, h3, h4, h5, h6
   line-height: 1.3
 
 h1
-  font-size: 2em
+  font-size: 2rem
 h2
-  font-size: 1.5em
+  font-size: 1.5rem
 h3
-  font-size: 1.17em
+  font-size: 1.17rem
 h4
-  font-size: 1.12em
+  font-size: 1.12rem
 h5
-  font-size: .83em
+  font-size: .83rem
 h6
-  font-size: .75em
+  font-size: .75rem
 
 em
   font-style: italic
@@ -52,17 +45,17 @@ a
   text-decoration: underline
 ul
   list-style: outside disc
-  padding-left: 1.5em
+  padding-left: 1.5rem
 li
-  margin-bottom: 0.3em
+  margin-bottom: 0.3rem
 h2
   border-bottom: solid 1px $link-color
-  margin-bottom: 2em
-  margin-top: 1.7em
+  margin-bottom: 2.5rem
+  padding-top: 2.5rem
 h3
-  margin: 1.5em 0
-h3 + p
-  margin-top: -1.7em
+  margin: 5rem 0 0
+h2 + h3
+  margin-top: 0
 h4
   color: $link-color
   font-variant: small-caps
@@ -71,13 +64,40 @@ blockquote
   border:
     left: solid 4px $link-color
     bottom: solid 1px darken($body-bg-color, 15%)
-  padding: 1em 0 1em 2em
+  padding: 1rem 0 1rem 2rem
   p:last-child
     margin-bottom: 0
 
 #main, #content
   position: relative
   overflow: hidden
+
+#main
+  padding-top: 4rem
+  +desktop
+    padding-bottom: 1rem
+  +tablet
+    //padding-top: 1rem
+    padding-bottom: 1rem
+  +print
+    //padding-top: 3rem
+    padding-bottom: 3rem
+
+#main,
+body > header[role="banner"]
+  box-sizing: border-box
+  +desktop
+    padding-left: 10rem
+    padding-right: 10rem
+  +tablet
+    padding-left: 5rem
+    padding-right: 5rem
+  +mobile
+    padding-left: 1rem
+    padding-right: 1rem
+  +print
+    padding-left: 10rem
+    padding-right: 10rem
 
 body > header[role=banner].normal
   +hide-print
@@ -93,46 +113,51 @@ body > header[role=banner].normal
     color: $text-color
     position: relative
   h1
-    +desktop
-      margin: 0
-        left: 10%
-    +tablet
-      margin: 0
-        left: 5%
-    font-size: 1.2em
+    margin: 0
+    font-size: 1.2rem
     float: left
-    line-height: 2em
+    line-height: 2rem
     font-family: $sans
     font-weight: bold
     a
       text-decoration: none
   h2
     margin: 0
-    font-size: 1em
+    font-size: 1rem
     display: none
   ul li a:hover
     color: $link-color
     &::before, &::after
       position: absolute
-      top: -.7em
+      top: -.7rem
     &::before
-      left: -.6em
+      left: -.6rem
       //content: '\00BB'
       content: '{'
     &::after
-      right: -.6em
+      right: -.6rem
       //content: '\00AB'
       content: '}'
   nav[role=navigation]
     position: relative
-    +desktop
+    float: right
+    line-height: 2.4rem
+    font-family: $sans
+    ul
+      list-style: none
       margin: 0
-        right: 10%
+      padding: 0
+      li
+        display: inline-block
+        margin: 0 .5rem
+        &:last-child
+          margin-right: 0
+        &:first-child
+          margin-left: 0
+    +desktop
       .menu-toggle
         display: none
     +tablet
-      margin: 0
-        right: 5%
       .menu-toggle
         display: none
     +mobile
@@ -150,7 +175,7 @@ body > header[role=banner].normal
       ul
         display: none
         position: fixed
-        top: 2.5em
+        top: 2.5rem
         right: 0
         width: 100%
         background: $body-bg-color
@@ -168,28 +193,17 @@ body > header[role=banner].normal
               a
                 display: block
                 width: 100%
-                padding: 0 5%
+                padding: 0 1rem
                 text-decoration: none
                 background: $text-color
                 border-bottom: solid 1px $body-bg-color
                 color: $body-bg-color
                 &:hover
                   background: lighten($text-color, 5%)
-    float: right
-    line-height: 2.4em
-    font-family: $sans
-    ul
-      list-style: none
-      margin: 0
-        left: -.5em
-      padding: 0
-      li
-        display: inline-block
-        margin: 0 .5em
 
 body > footer
   +hide-print
-  font-size: .6em
+  font-size: .6rem
   margin-top: 100px
   text-align: center
 

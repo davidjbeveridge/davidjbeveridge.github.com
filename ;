@@ -62,4 +62,4 @@ body#home
         margin: 0 .5em
 
   #main
-    padding: 0 !important
+    padding: 0

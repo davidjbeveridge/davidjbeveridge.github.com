@@ -115,6 +115,7 @@ StudioDBC was a web consultancy I co-founded, now defunkt.
 MySQL,*
 jQuery
 
+{:#presentations}
 ## Presentations
 
 ### TDD In JavaScript

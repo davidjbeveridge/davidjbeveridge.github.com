@@ -28,7 +28,7 @@ managment and a third-party advocate (me).  I have coached them through
 mutliple stages of growth as a company, and have watched their team flourish.
 
 In addition to the process-oriented work I do with them, I have also provided
-technical advise, including an on-site training day (Sept.  2015) on
+technical advice, including an on-site training day (Sept.  2015) on
 Test-driven JavaScript ([slides][tdd-in-js]) with React ([tdd-react]) and
 Backbone ([tdd-backbone]).
 

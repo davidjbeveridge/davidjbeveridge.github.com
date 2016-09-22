@@ -264,28 +264,7 @@ Migrations. Much of the information for this talk was taken from Chapter 6, and
 opined in person.
 
 {: #testimonials }
+
 ## Testimonials
 
-> I have been fortunate enough to work with some excellent coders, across my 20+
-> year career. And while I certainly place David in that category, I rank him
-> higher, still, in communication, empathy, and ethics. Qualities that I always
-> look for in professional software developers, but rarely find within a single
-> individual. I would be honored to have David on any dev team I was part of.
-
--- Brian V. Hughes  
-VP of Engineering  
-[HashRabbit, Inc.][hashrabbit]
-
-
-> David is a strong proponent for testing, security and good software
-> practices [...] it’s hard not to learn new things from him in these areas.
-
--- Antonio Morales  
-Software Engineer  
-[Originate, Inc.][originate]
-
-
-[hashrabbit]: https://hashrabbit.co/
-[originate]: http://originate.com/
-
-
+{% include portfolio/_testimonials.html %}

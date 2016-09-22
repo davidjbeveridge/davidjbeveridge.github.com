@@ -1,0 +1,53 @@
+#portfolio
+  .testimonial
+    box-sizing: border-box
+    margin-bottom: 4rem
+    text-align: center
+    +desktop
+      display: flex
+      flex-direction: row
+      flex: 1 0 0
+    
+    blockquote
+      padding: 0
+      text-align: left
+      +desktop
+        box-sizing: border-box
+
+    footer
+      $citation-image-width: 5rem
+
+      clear: both
+      position: relative
+      font-size: 0.8rem
+      min-width: 11rem
+      display: inline-block
+      margin: 0 auto
+      +desktop
+        display: flex
+        flex-direction: column
+        align-items: right
+        box-sizing: border-box
+        margin-left: 1rem
+        text-align: left
+
+      p
+        padding-left: 1rem
+        position: relative
+        margin: 0
+        font-style: italic
+        font-weight: 500
+        &:before
+          content: '-- '
+          position: absolute
+          left: 0
+          display: block
+
+      img
+        width: $citation-image-width
+        height: auto
+        border-radius: 100%
+        border: solid 2px #fff
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3)
+        margin-left: 1rem
+        margin-bottom: 1rem

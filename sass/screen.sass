@@ -16,6 +16,26 @@ body,html
 address, blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, li, ol, p, pre, table, ul
   margin-bottom: 1rem
 
+q
+  position: relative
+  display: block
+  text-indent: 2rem
+  padding: 2rem
+  overflow: hidden
+  &:before, &:after
+    font-size: 3rem
+    line-height: 1rem
+    display: inline-block
+    color: #d9d9d9
+  &:before
+    content: '\201c'
+    text-indent: -2rem
+  &:after
+    content: '\201d'
+    position: absolute
+    bottom: 0
+    right: 2rem
+
 h1, h2, h3, h4, h5, h6
   page-break-after: avoid
 
@@ -86,12 +106,14 @@ blockquote
 #main,
 body > header[role="banner"]
   box-sizing: border-box
+  max-width: 80rem
+  margin: 0 auto
   +desktop
-    padding-left: 10rem
-    padding-right: 10rem
+    padding-left: 7rem
+    padding-right: 7rem
   +tablet
-    padding-left: 5rem
-    padding-right: 5rem
+    padding-left: 3rem
+    padding-right: 3rem
   +mobile
     padding-left: 1rem
     padding-right: 1rem

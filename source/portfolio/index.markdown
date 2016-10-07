@@ -211,6 +211,8 @@ and helped to work through the hurdles of the Kendo UI integration.
 
 *Technologies: React.js, Kendo UI, Redux, Flux, Radium*
 
+[dispatch]: https://www.dispatch.me/
+
 ### CardGnome Web-to-Print System
 
 *[Card Gnome][cardgnome] is a greeting card company, specializing in
